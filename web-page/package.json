@@ -1,5 +1,5 @@
 {
-  "name": "my-website",
+  "name": "web-page",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,9 +12,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "node-sass": "^4.9.2",
-    "sass-loader": "^7.0.3"
   }
 }
