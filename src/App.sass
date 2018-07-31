@@ -1,0 +1,86 @@
+$color_blue: rgb(36, 74, 179)
+$color_pink: rgb(252, 235, 235)
+  
+*
+  //border: solid black 1px
+
+html, body
+  padding: 0
+  margin: 0
+
+.nav_item
+  height: 50px
+  font-size: 15px
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $color_pink
+  padding-top: 25px
+  padding-bottom: 10px
+  border-bottom: 5px solid $color_pink
+  transition: 0.2s
+  cursor: pointer
+  &:hover
+    background-color: $color_pink
+    border-bottom: 5px solid $color_blue 
+    color: $color_blue   
+
+
+.nav_bar
+  //border: solid black 1px
+  position: fixed
+  width: 100%
+  margin: 0
+  background-color: $color_blue
+  z-index: 1
+
+.block
+  height: 800px
+  //border: solid black 1px
+
+.front_page
+  background: url("https://i1.wp.com/blog.biognosys.com/wp-content/uploads/2018/02/hormones.png?zoom=2&fit=1400%2C787&ssl=1")
+  background-size: cover
+  z-index: -2
+
+.title_card
+  height: 400px
+  top: 250px
+  color: $color_pink
+  border: solid 10px $color_pink
+  //background-color: rgba(36, 74, 179, 0.5)
+  position: relative
+  overflow: hidden
+
+.square
+  width: 40px
+  height: 40px
+  background-color: $color_pink
+  position: absolute
+  right: 0
+  z-index: 1
+.main_title
+  font-size: 45px
+  margin-top: 0px
+  font-family: Athelas
+.sub_title
+  font-size: 30px
+  margin-bottom: 0px
+  font-family: Athelas
+.titles
+  padding: 30px
+  position: relative
+  z-index: 1
+.blur
+  background: rgba(36, 74, 179, 0.8)
+  width: 120%
+  height: 120%
+  position: absolute
+  left: 0
+  top: 0
+  filter: blur(15px)
+  border: solid black 1px
+  z-index: 0
+
+.block2
+  background-color: $color_pink

@@ -1,0 +1,80 @@
+html, body {
+  padding: 0;
+  margin: 0; }
+
+.nav_item {
+  height: 50px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fcebeb;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  border-bottom: 5px solid #fcebeb;
+  transition: 0.2s;
+  cursor: pointer; }
+  .nav_item:hover {
+    background-color: #fcebeb;
+    border-bottom: 5px solid #244ab3;
+    color: #244ab3; }
+
+.nav_bar {
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  background-color: #244ab3;
+  z-index: 1; }
+
+.block {
+  height: 800px; }
+
+.front_page {
+  background: url("https://i1.wp.com/blog.biognosys.com/wp-content/uploads/2018/02/hormones.png?zoom=2&fit=1400%2C787&ssl=1");
+  background-size: cover;
+  z-index: -2; }
+
+.title_card {
+  height: 400px;
+  top: 250px;
+  color: #fcebeb;
+  border: solid 10px #fcebeb;
+  position: relative;
+  overflow: hidden; }
+
+.square {
+  width: 40px;
+  height: 40px;
+  background-color: #fcebeb;
+  position: absolute;
+  right: 0;
+  z-index: 1; }
+
+.main_title {
+  font-size: 45px;
+  margin-top: 0px;
+  font-family: Athelas; }
+
+.sub_title {
+  font-size: 30px;
+  margin-bottom: 0px;
+  font-family: Athelas; }
+
+.titles {
+  padding: 30px;
+  position: relative;
+  z-index: 1; }
+
+.blur {
+  background: rgba(36, 74, 179, 0.8);
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: blur(15px);
+  border: solid black 1px;
+  z-index: 0; }
+
+.block2 {
+  background-color: #fcebeb; }
