@@ -2,68 +2,90 @@ html, body {
   padding: 0;
   margin: 0; }
 
-.nav_item {
-  height: 50px;
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fcebeb;
-  padding-top: 25px;
-  padding-bottom: 10px;
-  border-bottom: 5px solid #fcebeb;
-  transition: 0.2s;
-  cursor: pointer; }
-  .nav_item:hover {
-    background-color: #fcebeb;
-    border-bottom: 5px solid #244ab3;
-    color: #244ab3; }
+.camera {
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+.space {
+  height: 100%;
+  transform-style: preserve-3d; }
+
+.back_layer {
+  background: url("./image/background_image.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: translateZ(-1px) scale(2); }
+
+.base_layer {
+  transform: translateZ(0);
+  height: 100%; }
 
 .nav_bar {
   position: fixed;
   width: 100%;
   margin: 0;
   background-color: #244ab3;
-  z-index: 1; }
+  z-index: 2; }
+  .nav_bar .nav_item {
+    height: 50px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fcebeb;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    border-bottom: 5px solid #fcebeb;
+    transition: 0.2s;
+    cursor: pointer; }
+    .nav_bar .nav_item:hover {
+      background-color: #fcebeb;
+      border-bottom: 5px solid #244ab3;
+      color: #244ab3; }
 
 .block {
-  height: 800px; }
-
-.front_page {
-  background: url("https://i1.wp.com/blog.biognosys.com/wp-content/uploads/2018/02/hormones.png?zoom=2&fit=1400%2C787&ssl=1");
-  background-size: cover;
-  z-index: -2; }
-
-.title_card {
-  height: 400px;
-  top: 250px;
-  color: #fcebeb;
-  border: solid 10px #fcebeb;
-  position: relative;
-  overflow: hidden; }
+  height: 800px;
+  position: relative; }
 
 .square {
   width: 40px;
   height: 40px;
   background-color: #fcebeb;
   position: absolute;
-  right: 0;
   z-index: 1; }
 
 .main_title {
   font-size: 45px;
   margin-top: 0px;
-  font-family: Athelas; }
+  font-family: Athelas;
+  color: #fcebeb; }
 
-.sub_title {
-  font-size: 30px;
-  margin-bottom: 0px;
-  font-family: Athelas; }
-
-.titles {
-  padding: 30px;
-  position: relative;
-  z-index: 1; }
+.front_page {
+  background-size: cover;
+  z-index: -2; }
+  .front_page .title_card {
+    height: 400px;
+    top: 250px;
+    color: #fcebeb;
+    border: solid 10px #fcebeb;
+    position: relative;
+    overflow: hidden; }
+  .front_page .square1 {
+    right: 0; }
+  .front_page .sub_title {
+    font-size: 30px;
+    margin-bottom: 0px;
+    font-family: Athelas; }
+  .front_page .titles {
+    padding: 30px;
+    position: relative;
+    z-index: 1; }
 
 .blur {
   background: rgba(36, 74, 179, 0.8);
@@ -73,8 +95,172 @@ html, body {
   left: 0;
   top: 0;
   filter: blur(15px);
-  border: solid black 1px;
   z-index: 0; }
 
 .block2 {
   background-color: #fcebeb; }
+  .block2 .image_block {
+    position: relative;
+    top: 100px;
+    background: url("./image/background_image.png");
+    background-size: cover; }
+  .block2 .image_content {
+    height: 600px;
+    background-image: url("http://aliensunmin.github.io/project/360video/CVPR2017/cvpr17-360.jpg");
+    background-size: contain; }
+  .block2 .image_title {
+    height: 600px;
+    background-color: rgba(36, 74, 179, 0.6);
+    padding: 20px; }
+  .block2 .square2 {
+    bottom: 20px; }
+
+.block3 {
+  background: url("./image/background_image_reverse.png");
+  background-size: cover; }
+  .block3 .main_title {
+    position: relative;
+    z-index: 1; }
+  .block3 .square {
+    top: 20px;
+    right: 0; }
+
+.hover_block {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(36, 74, 179, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.block3 .content_block {
+  height: 800px;
+  z-index: 1;
+  padding-top: 120px; }
+
+.block3 .content_text {
+  position: relative;
+  color: #fcebeb;
+  font-size: 20px;
+  z-index: 1; }
+
+.block3 .title_block {
+  position: relative; }
+
+.block3 .bar {
+  height: 600px;
+  position: absolute;
+  bottom: 0;
+  left: -30px;
+  border: solid #fcebeb 5px;
+  z-index: 1; }
+
+.block6 {
+  background-color: #fcebeb; }
+  .block6 .content_block {
+    height: 800px;
+    z-index: 1;
+    padding-top: 200px; }
+  .block6 .main_title {
+    color: #244ab3; }
+  .block6 .content_text {
+    position: relative;
+    color: #244ab3;
+    font-size: 20px;
+    z-index: 1; }
+  .block6 .square {
+    background-color: #244ab3;
+    right: 0;
+    transform: translateY(-130%); }
+  .block6 .bar {
+    height: 600px;
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    border: solid #244ab3 5px;
+    z-index: 1; }
+
+.footer {
+  height: 500px;
+  background-image: url("./image/background_image_footer.jpg");
+  background-size: cover; }
+  .footer .cover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 74, 179, 0.5); }
+  .footer .next_button {
+    border: solid #fcebeb 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-top: 10px;
+    padding-left: 40px;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer; }
+  .footer .blur {
+    z-index: -1; }
+  .footer .sub_title {
+    font-size: 30px;
+    margin-bottom: 0px;
+    font-family: Athelas;
+    color: #fcebeb; }
+
+.side_bar {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  z-index: 2; }
+  .side_bar .lil_square {
+    width: 30px;
+    height: 30px;
+    background-color: #244ab3; }
+  .side_bar .reverse {
+    background-color: #4d73e6; }
+
+.block4 {
+  background-color: #fcebeb;
+  padding-top: 150px; }
+  .block4 .main_title {
+    color: #244ab3; }
+  .block4 .square {
+    position: absolute;
+    background-color: #244ab3;
+    right: 0;
+    transform: translateY(-130%); }
+  .block4 .row {
+    position: relative; }
+    .block4 .row img {
+      width: 100%; }
+  .block4 .sub_title {
+    font-size: 30px;
+    margin-bottom: 0px;
+    font-family: Athelas;
+    color: #244ab3; }
+  .block4 img {
+    width: 30px; }
+
+.block5 {
+  background: url("./image/background_image.png");
+  background-size: cover; }
+  .block5 .image_block {
+    position: relative;
+    top: 100px;
+    background-color: #fcebeb;
+    z-index: 1; }
+  .block5 .image_content {
+    height: 600px; }
+  .block5 .main_title {
+    color: #244ab3; }
+  .block5 .image_title {
+    height: 600px;
+    padding: 20px; }
+  .block5 .square2 {
+    bottom: 20px;
+    background-color: #244ab3; }
+  .block5 .video {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0; }

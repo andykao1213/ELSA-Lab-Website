@@ -1,4 +1,5 @@
 $color_blue: rgb(36, 74, 179)
+$color_lightBlue: rgb(77, 115, 230)
 $color_pink: rgb(252, 235, 235)
   
 *
@@ -8,23 +9,27 @@ html, body
   padding: 0
   margin: 0
 
-.nav_item
-  height: 50px
-  font-size: 15px
-  display: flex
-  justify-content: center
-  align-items: center
-  color: $color_pink
-  padding-top: 25px
-  padding-bottom: 10px
-  border-bottom: 5px solid $color_pink
-  transition: 0.2s
-  cursor: pointer
-  &:hover
-    background-color: $color_pink
-    border-bottom: 5px solid $color_blue 
-    color: $color_blue   
+.camera
+  perspective: 1px
+  overflow-x: hidden
+  overflow-y: auto
+.space
+  height: 100%
+  transform-style: preserve-3d
+.back_layer
+  background: url("./image/background_image.png")
+  background-size: cover
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  z-index: -1
+  transform: translateZ(-1px) scale(2)
 
+.base_layer
+  transform: translateZ(0)
+  height: 100%
 
 .nav_bar
   //border: solid black 1px
@@ -32,45 +37,67 @@ html, body
   width: 100%
   margin: 0
   background-color: $color_blue
-  z-index: 1
+  z-index: 2
+
+  .nav_item
+    height: 50px
+    font-size: 15px
+    display: flex
+    justify-content: center
+    align-items: center
+    color: $color_pink
+    padding-top: 25px
+    padding-bottom: 10px
+    border-bottom: 5px solid $color_pink
+    transition: 0.2s
+    cursor: pointer
+    &:hover
+      background-color: $color_pink
+      border-bottom: 5px solid $color_blue 
+      color: $color_blue   
 
 .block
   height: 800px
-  //border: solid black 1px
-
-.front_page
-  background: url("https://i1.wp.com/blog.biognosys.com/wp-content/uploads/2018/02/hormones.png?zoom=2&fit=1400%2C787&ssl=1")
-  background-size: cover
-  z-index: -2
-
-.title_card
-  height: 400px
-  top: 250px
-  color: $color_pink
-  border: solid 10px $color_pink
-  //background-color: rgba(36, 74, 179, 0.5)
   position: relative
-  overflow: hidden
+  //border: solid black 1px
 
 .square
   width: 40px
   height: 40px
   background-color: $color_pink
   position: absolute
-  right: 0
   z-index: 1
+
 .main_title
   font-size: 45px
   margin-top: 0px
   font-family: Athelas
-.sub_title
-  font-size: 30px
-  margin-bottom: 0px
-  font-family: Athelas
-.titles
-  padding: 30px
-  position: relative
-  z-index: 1
+  color: $color_pink
+
+.front_page
+  //background: url("./image/background_image.png")
+  background-size: cover
+  z-index: -2
+
+  .title_card
+    height: 400px
+    top: 250px
+    color: $color_pink
+    border: solid 10px $color_pink
+    //background-color: rgba(36, 74, 179, 0.5)
+    position: relative
+    overflow: hidden
+  .square1
+    right: 0
+  
+  .sub_title
+    font-size: 30px
+    margin-bottom: 0px
+    font-family: Athelas
+  .titles
+    padding: 30px
+    position: relative
+    z-index: 1
 .blur
   background: rgba(36, 74, 179, 0.8)
   width: 120%
@@ -79,8 +106,192 @@ html, body
   left: 0
   top: 0
   filter: blur(15px)
-  border: solid black 1px
   z-index: 0
 
 .block2
   background-color: $color_pink
+
+  .image_block
+    //border: solid black 1px
+    //height: 100%
+    position: relative
+    top: 100px
+    background: url("./image/background_image.png")
+    background-size: cover
+  
+  .image_content
+    height: 600px
+    background-image: url("http://aliensunmin.github.io/project/360video/CVPR2017/cvpr17-360.jpg")
+    background-size: contain
+
+  .image_title
+    height: 600px
+    background-color: rgba(36, 74, 179, 0.6)
+    padding: 20px
+  .square2
+    bottom: 20px
+
+.block3
+  background: url("./image/background_image_reverse.png")
+  background-size: cover
+  .main_title
+    position: relative
+    z-index: 1
+  .square
+    top: 20px
+    right: 0
+
+.hover_block
+  width: 100%
+  height: 100%
+  background-color: rgba(36, 74, 179, 0.6)
+  position: absolute
+  left: 0
+  top: 0
+
+.block3
+  .content_block
+    height: 800px
+    z-index: 1
+    padding-top: 120px
+    //border: solid black 2px
+
+  .content_text
+    position: relative
+    color: $color_pink
+    font-size: 20px
+    z-index: 1
+
+  .title_block
+    position: relative
+
+  .bar
+    height: 600px
+    position: absolute
+    bottom: 0
+    left: -30px
+    //transform: translate(-50%, -100%)
+    border: solid $color_pink 5px
+    z-index: 1
+
+.block6
+  background-color: $color_pink
+  
+  .content_block
+    height: 800px
+    z-index: 1
+    padding-top: 200px
+    //border: solid black 2px
+  .main_title
+    color: $color_blue
+
+  .content_text
+    position: relative
+    color: $color_blue
+    font-size: 20px
+    z-index: 1
+  
+  .square
+    background-color: $color_blue
+    right: 0
+    transform: translateY(-130%)
+  
+  .bar
+    height: 600px
+    position: absolute
+    bottom: 0
+    right: -30px
+    //transform: translate(-50%, -100%)
+    border: solid $color_blue 5px
+    z-index: 1
+
+.footer
+  height: 500px
+  background-image: url("./image/background_image_footer.jpg")
+  background-size: cover
+
+  .cover
+    width: 100%
+    height: 100%
+    background-color: rgba(36, 74, 179, 0.5)
+
+  .next_button
+    border: solid $color_pink 10px
+    top: 50%
+    transform: translateY(-50%)
+    padding-top: 10px
+    padding-left: 40px
+    z-index: 1
+    overflow: hidden
+    cursor: pointer
+  .blur
+    z-index: -1
+
+  .sub_title
+    font-size: 30px
+    margin-bottom: 0px
+    font-family: Athelas
+    color: $color_pink
+
+.side_bar
+  position: fixed
+  right: 0
+  top: 50%
+  transform: translateY(-50%)
+  width: 30px
+  z-index: 2
+  .lil_square
+    width: 30px
+    height: 30px
+    background-color: $color_blue
+  .reverse
+    background-color: $color_lightBlue
+
+.block4
+  background-color: $color_pink
+  padding-top: 150px 
+    
+  .main_title
+    color: $color_blue
+  .square
+    position: absolute
+    background-color: $color_blue
+    right: 0
+    transform: translateY(-130%)
+  .row 
+    //border: solid red 1px
+    position: relative
+    img 
+      width: 100%
+  .sub_title
+    font-size: 30px
+    margin-bottom: 0px
+    font-family: Athelas
+    color: $color_blue
+  img 
+    width: 30px
+    
+.block5
+  background: url('./image/background_image.png')
+  background-size: cover
+  .image_block
+    position: relative
+    top: 100px
+    background-color: $color_pink
+    z-index: 1
+  
+  .image_content
+    height: 600px
+  .main_title
+    color: $color_blue
+  .image_title
+    height: 600px
+    padding: 20px
+  .square2
+    bottom: 20px
+    background-color: $color_blue
+  .video
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    left: 0
