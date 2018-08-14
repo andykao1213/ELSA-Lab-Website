@@ -1,235 +1,18 @@
-$color_blue: rgb(36, 74, 179)
-$color_lightBlue: rgb(77, 115, 230)
-$color_pink: rgb(252, 235, 235)
+/* -- Define color -- */
+$color_primary: rgb(36, 74, 179)  // blue
+$color_primary_transparent: rgba(36, 74, 179, 0.6) 
+$color_primary_light: rgb(77, 115, 230)
+$color_secondary: rgb(252, 235, 235) //pink
   
 *
+  font-family: Athelas
   //border: solid black 1px
 
 html, body
   padding: 0
   margin: 0
 
-.camera
-  position: absolute
-  width: 100%
-  height: 100%
-  perspective: 300px
-  overflow-x: hidden
-  overflow-y: auto
-  scroll-behavior: smooth
-.space
-  transform-style: preserve-3d
-  position: relative
-.back_layer
-  background: url("./image/background_image.png")
-  background-size: cover
-  width: 100%
-  height: 100%
-  position: absolute
-  top: 0
-  left: 0
-
-.base_layer
-  transform: translateZ(60px) scale(.8)
-  height: 100%
-
-.hover_block
-  width: 100%
-  height: 100%
-  background-color: rgba(36, 74, 179, 0.6)
-  position: absolute
-  left: 0
-  top: 0
-
-.nav_bar
-  position: fixed
-  width: 100%
-  margin: 0
-  background-color: $color_blue
-  z-index: 2
-
-  .nav_item
-    height: 50px
-    font-size: 15px
-    display: flex
-    justify-content: center
-    align-items: center
-    color: $color_pink
-    padding-top: 25px
-    padding-bottom: 10px
-    border-bottom: 5px solid $color_pink
-    transition: 0.2s
-    cursor: pointer
-    &:hover
-      background-color: $color_pink
-      border-bottom: 5px solid $color_blue 
-      color: $color_blue   
-
-.block
-  height: 800px
-  position: relative
-  //border: solid black 1px
-
-.square
-  width: 40px
-  height: 40px
-  background-color: $color_pink
-  position: absolute
-  z-index: 1
-
-.main_title
-  font-size: 45px
-  margin-top: 0px
-  font-family: Athelas
-  color: $color_pink
-
-.front_page
-
-  .title_card
-    height: 400px
-    top: 250px
-    color: $color_pink
-    border: solid 10px $color_pink
-    //background-color: rgba(36, 74, 179, 0.5)
-    position: relative
-    overflow: hidden
-  .square1
-    right: 0
-  
-  .sub_title
-    font-size: 30px
-    margin-bottom: 0px
-    font-family: Athelas
-  .titles
-    padding: 30px
-    position: relative
-    z-index: 1
-.blur
-  background: rgba(36, 74, 179, 0.8)
-  width: 120%
-  height: 120%
-  position: absolute
-  left: 0
-  top: 0
-  filter: blur(15px)
-  z-index: 0
-
-.block2
-  background-color: $color_pink
-
-  .image_block
-    //border: solid black 1px
-    //height: 100%
-    position: relative
-    top: 100px
-    background: url("./image/background_image.png")
-    background-size: cover
-  
-  .image_content
-    height: 600px
-    background-image: url("http://aliensunmin.github.io/project/360video/CVPR2017/cvpr17-360.jpg")
-    background-size: contain
-
-  .image_title
-    height: 600px
-    background-color: rgba(36, 74, 179, 0.6)
-    padding: 20px
-  .square2
-    bottom: 20px
-
-.block3
-  background-color: rgba(36, 74, 179, 0.6)
-  .main_title
-    position: relative
-    z-index: 1
-  .square
-    top: 20px
-    right: 0
-  .content_block
-    height: 800px
-    z-index: 1
-    padding-top: 120px
-    //border: solid black 2px
-
-  .content_text
-    position: relative
-    color: $color_pink
-    font-size: 20px
-    z-index: 1
-
-  .title_block
-    position: relative
-
-  .bar
-    height: 100%
-    position: absolute
-    //bottom: -50
-    left: -30px
-    transform: translateY(-50%)
-    border: solid $color_pink 5px
-    z-index: 1
-
-.block6
-  background-color: $color_pink
-  
-  .content_block
-    height: 800px
-    z-index: 1
-    padding-top: 200px
-    //border: solid black 2px
-  .main_title
-    color: $color_blue
-
-  .content_text
-    position: relative
-    color: $color_blue
-    font-size: 20px
-    z-index: 1
-  
-  .square
-    background-color: $color_blue
-    right: 0
-    transform: translateY(-130%)
-  
-  .bar
-    height: 600px
-    position: absolute
-    bottom: 0
-    right: -30px
-    //transform: translate(-50%, -100%)
-    border: solid $color_blue 5px
-    z-index: 1
-
-.footer
-  height: 500px
-
-  .back_layer
-    background-image: url("./image/background_image_footer.jpg")
-    background-size: cover
-
-  .cover
-    width: 100%
-    height: 100%
-    background-color: rgba(36, 74, 179, 0.5)
-
-  .next_button
-    border: solid $color_pink 10px
-    top: 50%
-    transform: translateY(-50%)
-    padding-top: 10px
-    padding-left: 40px
-    z-index: 1
-    overflow: hidden
-    cursor: pointer
-  .blur
-    z-index: -1
-
-  .sub_title
-    font-size: 30px
-    margin-bottom: 0px
-    font-family: Athelas
-    color: $color_pink
-
+/* -- Side bar layout -- */
 .side_bar
   position: fixed
   right: 0
@@ -240,55 +23,217 @@ html, body
   .lil_square
     width: 30px
     height: 30px
-    background-color: $color_blue
-  .reverse
-    background-color: $color_lightBlue
+  .lil_square:nth-child(odd)
+    background-color: $color_primary
+  .lil_square:nth-child(even)
+    background-color: $color_primary_light
 
-.block4
-  background-color: $color_pink
-  padding-top: 150px 
-    
-  .main_title
-    color: $color_blue
+/* -- Navigation bar layout -- */
+.nav_bar
+  position: fixed
+  width: 100%
+  margin: 0
+  background-color: $color_primary
+  z-index: 100
+
+  .nav_item
+    height: 50px
+    font-size: 15px
+    display: flex
+    justify-content: center
+    align-items: center
+    color: $color_secondary
+    padding-top: 25px
+    padding-bottom: 10px
+    border-bottom: 5px solid $color_secondary
+    transition: 0.2s
+    cursor: pointer
+    &:hover
+      background-color: $color_secondary
+      border-bottom: 5px solid $color_primary 
+      color: $color_primary   
+
+/* -- CSS 3D property for parallax effect -- */
+.slides           // camera of the CSS 3D
+  position: absolute
+  width: 100%
+  height: 100%
+  perspective: 300px
+  overflow-x: hidden
+  overflow-y: auto
+  scroll-behavior: smooth
+
+.slide_parallax   // space of the CSS 3D
+  transform-style: preserve-3d
+  position: relative
+
+.back_layer
+  background: url("./image/background_image.png")
+  background-size: cover
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+
+.base_layer
+  transform: translateZ(100px) scale(.7)
+  height: 100%
+
+/* -- Global Property -- */
+.slide
+  height: 800px
+
+.hover_block  // transparent blue hover on the bg image
+  width: 100%
+  height: 100%
+  background-color: $color_primary_transparent
+  position: absolute
+  left: 0
+  top: 0
+
+.square
+  width: 40px
+  height: 40px
+  position: absolute
+
+.main_title
+  font-size: 45px
+  margin-top: 0px
+
+.sub_title
+  font-size: 30px
+  margin-bottom: 0px
+
+.media_title
+  height: 600px
+  padding: 20px
   .square
-    position: absolute
-    background-color: $color_blue
+    bottom: 20px
+
+.content_text
+  font-size: 20px
+
+.title_block
+  position: relative
+  .square
+    top: 20px
     right: 0
-    transform: translateY(-130%)
+
+.media_block
+  position: relative
+  top: 100px
+.media_content
+  height: 600px
+  display: flex
+
+/* -- Slide Layout -- */
+.slide:nth-child(1)
+  .title_card
+    height: 400px
+    top: 250px
+    color: $color_secondary
+    border: solid 10px $color_secondary
+    position: relative
+    overflow: hidden
+  .square
+    right: 0
+    background-color: $color_secondary
+  .titles
+    padding: 30px
+    position: relative
+  .hover_block
+    background-color: $color_primary
+    opacity: 0.7
+
+
+.slide:nth-child(2)
+  background-color: $color_secondary
+  color: $color_secondary
+  .media_block
+    background: url("./image/background_image.png")
+    background-size: cover 
+  .square
+    background-color: $color_secondary
+  img 
+    align-self: center
+
+
+.slide:nth-child(3)
+  background-color: $color_primary_transparent
+  color: $color_secondary
+  .square
+    background-color: $color_secondary
+  .content_block
+    height: 800px
+    padding-top: 120px
+  .bar
+    height: 120%
+    position: absolute
+    left: -30px
+    transform: translateY(-40%)
+    border: solid $color_secondary 5px
+    z-index: -1
+
+.slide:nth-child(4)
+  background-color: $color_secondary
+  padding-top: 150px  
+  .main_title
+    color: $color_primary
+  .square
+    background-color: $color_primary
   .row 
     //border: solid red 1px
     position: relative
     img 
       width: 100%
   .sub_title
-    font-size: 30px
-    margin-bottom: 0px
-    font-family: Athelas
-    color: $color_blue
+    color: $color_primary
   img 
     width: 30px
-    
-.block5
-  background: url('./image/background_image.png')
-  background-size: cover
-  .image_block
+
+.slide:nth-child(5)
+  color: $color_primary
+  .media_block
+    background-color: $color_secondary
+  .square
+    background-color: $color_primary
+  .medial_content
     position: relative
-    top: 100px
-    background-color: $color_pink
-    z-index: 1
-  
-  .image_content
+  iframe
+    align-self: center
+    width: 100%
+    height: 90%
+    
+
+.slide:nth-child(6)
+  background-color: $color_secondary 
+  color: $color_primary
+  .content_block
+    height: 800px
+    padding-top: 200px
+  .square
+    background-color: $color_primary
+  .bar
     height: 600px
-  .main_title
-    color: $color_blue
-  .image_title
-    height: 600px
-    padding: 20px
-  .square2
-    bottom: 20px
-    background-color: $color_blue
-  .video
     position: absolute
+    bottom: 0
+    right: -30px
+    border: solid $color_primary 5px
+
+
+.footer
+  height: 500px
+  color: $color_secondary
+  .back_layer
+    background-image: url("./image/background_image_footer.jpg")
+    background-size: cover
+  .next_button
+    border: solid $color_secondary 10px
     top: 50%
     transform: translateY(-50%)
-    left: 0
+    padding-top: 10px
+    padding-left: 40px
+    cursor: pointer
+    .hover_block
+      z-index: -1
