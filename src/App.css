@@ -121,6 +121,13 @@ html, body {
   height: 600px;
   display: flex; }
 
+.btn_slide_sub {
+  transition-duration: 0.2s;
+  padding: 5px 30px;
+  cursor: pointer; }
+  .btn_slide_sub:hover {
+    transform: scale(1.05); }
+
 /* -- Slide Layout -- */
 .slide:nth-child(1) .title_card {
   height: 400px;
@@ -171,42 +178,67 @@ html, body {
 
 .slide:nth-child(4) {
   background-color: #fcebeb;
-  padding-top: 150px; }
-  .slide:nth-child(4) .main_title {
-    color: #244ab3; }
+  padding-top: 150px;
+  color: #244ab3; }
   .slide:nth-child(4) .square {
     background-color: #244ab3; }
   .slide:nth-child(4) .row {
-    position: relative; }
-    .slide:nth-child(4) .row img {
-      width: 100%; }
-  .slide:nth-child(4) .sub_title {
-    color: #244ab3; }
-  .slide:nth-child(4) img {
-    width: 30px; }
+    margin-top: 30px; }
+  .slide:nth-child(4) .btn_slide_sub {
+    background: url("./image/background_image_reverse.png");
+    background-size: 80%;
+    color: #fcebeb; }
 
 .slide:nth-child(5) {
-  color: #244ab3; }
-  .slide:nth-child(5) .media_block {
-    background-color: #fcebeb; }
+  padding-top: 150px;
+  color: #fcebeb; }
   .slide:nth-child(5) .square {
+    background-color: #fcebeb; }
+  .slide:nth-child(5) .row {
+    margin-top: 30px; }
+  .slide:nth-child(5) .btn_slide_sub {
+    color: #244ab3;
+    background: linear-gradient(to right, #fcebeb, rgba(252, 235, 235, 0.6)); }
+
+.slide:nth-child(6) {
+  background-color: #fcebeb;
+  color: #fcebeb; }
+  .slide:nth-child(6) .square {
+    background-color: #fcebeb;
+    bottom: 100px; }
+  .slide:nth-child(6) .title_col {
+    height: 800px;
+    background: url("./image/background_image.png");
+    background-size: cover;
+    padding-left: 50px; }
+  .slide:nth-child(6) .main_title {
+    position: relative;
+    top: 100px; }
+  .slide:nth-child(6) img {
+    transform: scale(0.8); }
+
+.slide:nth-child(7) {
+  color: #244ab3; }
+  .slide:nth-child(7) .media_block {
+    background-color: #fcebeb; }
+  .slide:nth-child(7) .square {
     background-color: #244ab3; }
-  .slide:nth-child(5) .medial_content {
+  .slide:nth-child(7) .medial_content {
     position: relative; }
-  .slide:nth-child(5) iframe {
+  .slide:nth-child(7) iframe {
     align-self: center;
     width: 100%;
     height: 90%; }
 
-.slide:nth-child(6) {
+.slide:nth-child(8) {
   background-color: #fcebeb;
   color: #244ab3; }
-  .slide:nth-child(6) .content_block {
+  .slide:nth-child(8) .content_block {
     height: 800px;
     padding-top: 200px; }
-  .slide:nth-child(6) .square {
+  .slide:nth-child(8) .square {
     background-color: #244ab3; }
-  .slide:nth-child(6) .bar {
+  .slide:nth-child(8) .bar {
     height: 600px;
     position: absolute;
     bottom: 0;

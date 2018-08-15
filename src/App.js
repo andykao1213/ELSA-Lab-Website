@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Grid, Row, Col, Image, ResponsiveEmbed } from 'react-bootstrap'
+
 import SysImg from './image/System_structure_img.jpg'
+import Award1 from './image/award_1.png'
+import Award2 from './image/award_2.png'
 
 class App extends Component {
   render() {
@@ -79,21 +82,60 @@ class App extends Component {
           </Row>
 
           <Row className='slide'>
-            <Grid>
-              <Col md={10} mdOffset={1}>
-                <Row className='title_block'>
+              <Grid>
+                <Col md={10} mdOffset={1}>
+                  <Row className='title_block'>
                     <p className='main_title'>Proposed Methodology</p>
                     <div className='square'></div>
-                </Row>
-                <Row className='btn_slide_sub'>
-                  <p>Bridge the Gap between Simulation and Reality</p>
-                </Row>
-                <Row className='btn_slide_sub'>
-                  <p>Training in Simulated Enviorments</p>
-                </Row>
-                <Row className='btn_slide_sub'>
-                  <p>Visual Guidance Module and Target Switching</p>
-                </Row>
+                  </Row>
+                  <Row className='btn_slide_sub'>
+                    <p className='main_title'>Bridge the Gap between Simulation and Reality</p>
+                  </Row>
+                  <Row className='btn_slide_sub'>
+                    <p className='main_title'>Training in Simulated Enviorments</p>
+                  </Row>
+                  <Row className='btn_slide_sub'>
+                    <p className='main_title'>Visual Guidance Module and Target Switching</p>
+                  </Row>
+                </Col>
+              </Grid>
+          </Row>
+
+          <Row className='slide slide_parallax'>
+            <div className='back_layer'>
+              <div className='hover_block'></div>
+            </div>
+            <div className='base_layer'>
+              <Grid>
+                <Col md={10} mdOffset={1}>
+                  <Row className='title_block'>
+                      <p className='main_title'>Experimental Results</p>
+                      <div className='square'></div>
+                  </Row>
+                  <Row className='btn_slide_sub'>
+                    <p className='main_title'>Model Settings and Robotic Platform</p>
+                  </Row>
+                  <Row className='btn_slide_sub'>
+                    <p className='main_title'>Learning Curves of the Two Tasks</p>
+                  </Row>
+                  <Row className='btn_slide_sub'>
+                    <p className='main_title'>Comparison in the Simulated and Real Worlds</p>
+                  </Row>
+                </Col>
+              </Grid>
+            </div>
+          </Row>
+
+          <Row className='slide'>
+            <Grid>
+              <Col md={4} className='title_col'>  
+                <div className='hover_block'></div>
+                <p className='main_title'> Awarding </p>
+                <div className='square'></div>
+              </Col>
+              <Col md={8} className='media_block_multi'>
+                <Image src={Award1} alt='award' responsive/>
+                <Image src={Award2} alt='award' responsive/>
               </Col>
             </Grid>
           </Row>

@@ -3,6 +3,7 @@ $color_primary: rgb(36, 74, 179)  // blue
 $color_primary_transparent: rgba(36, 74, 179, 0.6) 
 $color_primary_light: rgb(77, 115, 230)
 $color_secondary: rgb(252, 235, 235) //pink
+$color_secondary_transparent: rgba(252, 235, 235, 0.6)
   
 *
   font-family: Athelas
@@ -127,6 +128,13 @@ html, body
   height: 600px
   display: flex
 
+.btn_slide_sub
+  transition-duration: 0.2s
+  padding: 5px 30px 
+  cursor: pointer
+  &:hover
+    transform: scale(1.05)
+
 /* -- Slide Layout -- */
 .slide:nth-child(1)
   .title_card
@@ -177,22 +185,49 @@ html, body
 
 .slide:nth-child(4)
   background-color: $color_secondary
-  padding-top: 150px  
-  .main_title
-    color: $color_primary
+  padding-top: 150px 
+  color: $color_primary 
   .square
     background-color: $color_primary
-  .row 
-    //border: solid red 1px
-    position: relative
-    img 
-      width: 100%
-  .sub_title
-    color: $color_primary
-  img 
-    width: 30px
+  .row
+    margin-top: 30px
+  .btn_slide_sub
+    background: url("./image/background_image_reverse.png")
+    background-size: 80%
+    color: $color_secondary
+  
 
 .slide:nth-child(5)
+  padding-top: 150px 
+  color: $color_secondary
+  .square
+    background-color: $color_secondary
+  .row
+    margin-top: 30px
+  .btn_slide_sub
+    color: $color_primary
+    background: linear-gradient(to right, $color_secondary, $color_secondary_transparent)
+
+
+
+.slide:nth-child(6)
+  background-color: $color_secondary
+  color: $color_secondary
+  .square
+    background-color: $color_secondary
+    bottom: 100px
+  .title_col
+    height: 800px
+    background: url("./image/background_image.png")
+    background-size: cover
+    padding-left: 50px 
+  .main_title
+    position: relative
+    top: 100px
+  img
+    transform: scale(.8)
+
+.slide:nth-child(7)
   color: $color_primary
   .media_block
     background-color: $color_secondary
@@ -206,7 +241,7 @@ html, body
     height: 90%
     
 
-.slide:nth-child(6)
+.slide:nth-child(8)
   background-color: $color_secondary 
   color: $color_primary
   .content_block
