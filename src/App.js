@@ -1,38 +1,66 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid, Row, Col, Image, ResponsiveEmbed } from 'react-bootstrap'
+import { Grid, Row, Col, Image, Modal , ModalBody, ModalHeader} from 'react-bootstrap'
 
 import SysImg from './image/System_structure_img.jpg'
 import Award1 from './image/award_1.png'
 import Award2 from './image/award_2.png'
+import IconImg from './image/icon.png'
 
 class App extends Component {
+
+  state = {
+    isOpen: [false, false, false, false, false, false]
+  }
+
+  handleOpen = (id) => {
+    let tmp = [...this.state.isOpen]
+    tmp[id] = true
+    this.setState({isOpen: tmp})
+  }
+
+  handleHide = (id) => {
+    let tmp = [...this.state.isOpen]
+    tmp[id] = false
+    this.setState({isOpen: tmp})
+  }
+
+  handleRightArrow = (id) => {
+    let targetModal = document.getElementsByClassName('multipage')[0]
+    targetModal = targetModal.getElementsByClassName('modal-content')[0]
+    targetModal.getElementsByClassName('modal-body')[id].style.visibility = 'hidden'
+    targetModal.getElementsByClassName('modal-body')[id+1].style.visibility = 'visible'
+  }
+
+  handleLeftArrow = (id) => {
+    let targetModal = document.getElementsByClassName('multipage')[0]
+    targetModal = targetModal.getElementsByClassName('modal-content')[0]
+    targetModal.getElementsByClassName('modal-body')[id].style.visibility = 'hidden'
+    targetModal.getElementsByClassName('modal-body')[id-1].style.visibility = 'visible'
+  }
+
   render() {
     return (
       <div>
-
-        <div className='side_bar'>
-          <div className='lil_square'></div>
-          <div className='lil_square'></div>
-          <div className='lil_square'></div>
-          <div className='lil_square'></div>
-          <div className='lil_square'></div>
-          <div className='lil_square'></div>
-        </div>
-
-        <Row className='nav_bar'>
-          <Col md={1} mdOffset={9} className='nav_item'>Home</Col>
-          <Col md={1} className='nav_item'>Project</Col>
-          <Col md={1} className='nav_item'>About</Col>
-        </Row>
-
         <div className='slides'>
-
-          <Row className='slide slide_parallax'>
+          <Row className='nav_bar'>
+            <Col sm={2} className='nav_item'>
+              <Image src={IconImg} alt='icon' responsive/>
+              <div className='icon_title'>
+                <p>NTHU</p>
+                <p>ELSA</p>
+              </div>
+            </Col>
+            <Col sm={1} smOffset={7} className='nav_item'>Home</Col>
+            <Col sm={1} className='nav_item'>Project</Col>
+            <Col sm={1} className='nav_item'>About</Col>
+          </Row>
+        <div className='slide_parallax'>
+          <Row className='slide'>
             <div className='back_layer'></div>
             <div className='base_layer'>
               <Grid>
-                <Col md={7} mdOffset={5} className='title_card'>
+                <Col sm={7} smOffset={5} className='title_card'>
                   <div className='hover_block'></div>
                   <div className='square'></div>
                   <Row className='titles'>
@@ -50,24 +78,24 @@ class App extends Component {
             <Grid>
               <Row className='media_block'>
                 <div className='hover_block'></div>  
-                <Col md={3} className='media_title'>
+                <Col sm={3} className='media_title'>
                   <p className='main_title'>System Structure</p>
                   <div className='square'></div>
                 </Col>
-                <Col md={9} className='media_content'>
+                <Col sm={9} className='media_content'>
                   <Image src={SysImg} alt="System Image" responsive/>
                 </Col>
               </Row>
             </Grid>
           </Row>
 
-          <Row className='slide slide_parallax'>
+          <Row className='slide'>
             <div className='back_layer'>
               <div className='hover_block'></div>
             </div>
             <div className='base_layer'>
               <Grid>
-                <Col md={8} mdOffset={2} className='content_block'>
+                <Col sm={8} smOffset={2} className='content_block'>
                   <Row className='title_block'>
                     <p className='main_title'>Abstract</p>
                     <div className='square'></div>
@@ -82,38 +110,162 @@ class App extends Component {
           </Row>
 
           <Row className='slide'>
-              <Grid>
-                <Col md={10} mdOffset={1}>
-                  <Row className='title_block'>
-                    <p className='main_title'>Proposed Methodology</p>
-                    <div className='square'></div>
-                  </Row>
-                  <Row className='btn_slide_sub'>
-                    <p className='main_title'>Bridge the Gap between Simulation and Reality</p>
-                  </Row>
-                  <Row className='btn_slide_sub'>
-                    <p className='main_title'>Training in Simulated Enviorments</p>
-                  </Row>
-                  <Row className='btn_slide_sub'>
-                    <p className='main_title'>Visual Guidance Module and Target Switching</p>
-                  </Row>
-                </Col>
-              </Grid>
+            <Grid>
+              <Col sm={10} smOffset={1}>
+                <Row className='title_block'>
+                  <p className='main_title'>Proposed Methodology</p>
+                  <div className='square'></div>
+                </Row>
+                <Row className='btn_slide_sub'>
+                  <p className='main_title' onClick={()=>this.handleOpen(0)}>Bridge the Gap between Simulation and Reality</p>
+                  <Modal
+                    show={this.state.isOpen[0]}
+                    dialogClassName='img_dialog'
+                  >
+                    <ModalHeader>
+                      <p className='main_title'>Bridge the Gap between Simulation and Reality</p>
+                      <div className='square cross'
+                        onClick={()=>this.handleHide(0)}
+                      >
+                      </div>
+                    </ ModalHeader>
+                    <ModalBody>
+                      <div className='hover_block'></div>
+                      <Col sm={6} className='media_sub'>
+                        <Image src='' alt='put image here' responsive />
+                      </Col>
+                      <Col sm={6} className='content_sub'>
+                        <p className='title'>The model consists of a perception and a control module:</p>
+                        <p>- The perception module translates RGB images from the monocular cameras into scene semantic segmentation.</p>
+                        <p>- The control module takes image segmentation as inputs.</p>
+                        <p className='title'>Training Methodology:</p>
+                        <p>- During training, the control module only receives the image segmentations rendered by simulators.</p>
+                        <p>- During execution, the control module receives image segmentations from the perception module.</p>
+                        <p>- The perception module is only used during execution.</p>
+                      </Col>
+                    </ ModalBody>
+                  </Modal>
+                </Row>
+                <Row className='btn_slide_sub'>
+                  <p className='main_title' onClick={()=>this.handleOpen(1)}>Training in Simulated Enviorments</p>
+                  <Modal
+                    show={this.state.isOpen[1]}
+                    dialogClassName='img_dialog'
+                  >
+                    <ModalHeader>
+                      <p className='main_title'>Training in Simulated Enviorments</p>
+                      <div className='square cross'
+                        onClick={()=>this.handleHide(1)}
+                      >
+                      </div>
+                    </ ModalHeader>
+                    <ModalBody>
+                      <div className='hover_block'></div>
+                      <Col sm={6} className='media_sub'>
+                        <Image src='' alt='put image here' responsive />
+                      </Col>
+                      <Col sm={6} className='content_sub'>
+                        <p className='title'>Three Simulated Environments Rendered by 3D Unity:</p>
+                        <p>- Simple corridor: features straight passages, sharp turns, static obstacles (e.g, chairs), and moving obstacles (e.g, human).</p>
+                        <p>- Cluttered hallway: features a narrow hallway crammed with static obstacles, and moving obstacles.</p>
+                        <p>- Outdoor: features an outdoor roadway with sidewalks, buildings, terrain, as well as moving cars and pedestrians.</p>
+                        <p className='title'>Two Evaluation Tasks:</p>
+                        <p>- Obstacle avoidance: the agent’s goal is to navigate in a diverse set of scenes, and avoid colliding with obstacles.</p>
+                        <p>- During execution, the control module receives image segmentations from the perception module.</p>
+                        <p>- Target following: the objective of the agent is to follow the moving target (person) while avoiding collisions.</p>
+                      </Col>
+                    </ ModalBody>
+                  </Modal>
+                </Row>
+                <Row className='btn_slide_sub'>
+                  <p className='main_title' onClick={()=>this.handleOpen(2)}>Visual Guidance Module and Target Switching</p>
+                  <Modal
+                    show={this.state.isOpen[2]}
+                    dialogClassName='img_dialog multipage'
+                  >
+                    <ModalHeader>
+                      <p className='main_title'>Visual Guidance Module and Target Switching</p>
+                      <div className='square cross'
+                        onClick={()=>this.handleHide(2)}
+                      >
+                      </div>
+                    </ ModalHeader>
+                    <ModalBody>
+                      <div className='hover_block'>
+                        <div className='square'></div>
+                      </div>
+                      <Col sm={1} className='left_arrow'>
+                      </Col>
+                      <Col sm={10}>
+                        <Image src='' alt='put image here' responsive />
+                        <p className='title'>Visual Guidance Module for Target Decision:</p>
+                        <p>- The modular architecture can be augmented with a visual guidance module.</p>
+                        <p>- It does not require any re-training, fine-tuning, and extra data in the above scenarios.</p>
+                      </Col>
+                      <Col sm={1} className='right_arrow'>
+                        <div className='square' onClick={()=>this.handleRightArrow(0)}></div>
+                      </Col>
+                    </ ModalBody>
+                    <ModalBody>
+                      <div className='hover_block'></div>
+                      <Col sm={1} className='left_arrow'>
+                        <div className='square' onClick={()=>this.handleLeftArrow(1)}></div>
+                      </Col>
+                      <Col sm={10}>
+                        <Image src='' alt='put image here' responsive />
+                        <p className='title'>Switching the Following Target:</p>
+                        <p>- It is easy to alter the target following robot’s objective by modifying the label to its new target.</p>
+                        <p>- Our agent is able to successfully follow or catch the randomly specified targets in either the simulated environments or the real world.</p>
+                      </Col>
+                      <Col sm={1} className='right_arrow'>
+                      </Col>
+                    </ ModalBody>
+                  </Modal>
+                </Row>
+              </Col>
+            </Grid>
           </Row>
 
-          <Row className='slide slide_parallax'>
+          <Row className='slide'>
             <div className='back_layer'>
               <div className='hover_block'></div>
             </div>
             <div className='base_layer'>
               <Grid>
-                <Col md={10} mdOffset={1}>
+                <Col sm={10} smOffset={1}>
                   <Row className='title_block'>
                       <p className='main_title'>Experimental Results</p>
                       <div className='square'></div>
                   </Row>
                   <Row className='btn_slide_sub'>
-                    <p className='main_title'>Model Settings and Robotic Platform</p>
+                    <p className='main_title' onClick={()=>this.handleOpen(3)}>Model Settings and Robotic Platform</p>
+                    <Modal
+                    show={this.state.isOpen[3]}
+                    dialogClassName='plain_dialog'
+                    >
+                      <ModalHeader>
+                        <p className='main_title'>Model Settings and Robotic Platform</p>
+                        <div className='square cross'
+                          onClick={()=>this.handleHide(3)}
+                        >
+                        </div>
+                      </ ModalHeader>
+                      <ModalBody>
+                        <div className='hover_block'></div>
+                        <Col sm={5} smOffset={1} className='media_sub'>
+                          <Image src='' alt='put image here' responsive />
+                        </Col>
+                        <Col sm={5} className='content_sub' >
+                          <p>- Vanilla A3C with Adam optimizer.</p>
+                          <p>- Both the learning rate and epsilon set to 0.001.</p>
+                          <p>- Trained for 5M frames collected by 16 threads.</p>
+                          <p>- Kobuki robotic platform</p>
+                          <p>- Executed on an NVIDIA Jetson TX2.</p>
+                          <p>- Interfaced via robot operating system.</p>
+                          <p>- On-board RGB camera</p>
+                        </Col>
+                      </ ModalBody>
+                    </Modal>
                   </Row>
                   <Row className='btn_slide_sub'>
                     <p className='main_title'>Learning Curves of the Two Tasks</p>
@@ -128,31 +280,31 @@ class App extends Component {
 
           <Row className='slide'>
             <Grid>
-              <Col md={4} className='title_col'>  
+              <Col sm={4} className='title_col'>  
                 <div className='hover_block'></div>
                 <p className='main_title'> Awarding </p>
                 <div className='square'></div>
               </Col>
-              <Col md={8} className='media_block_multi'>
+              <Col sm={8} className='media_block_multi'>
                 <Image src={Award1} alt='award' responsive/>
                 <Image src={Award2} alt='award' responsive/>
               </Col>
             </Grid>
           </Row>
 
-          <Row className='slide slide_parallax'>
+          <Row className='slide'>
             <div className='back_layer'>
               <div className='hover_block'></div>
             </div>
             <div className='base_layer'>
               <Grid>
                 <Row className='media_block'>
-                  <Col md={3} className='media_title'>
+                  <Col sm={3} className='media_title'>
                     <p className='main_title'>Video Overview</p>
                     <div className='square'></div>
                   </Col>
-                  <Col md={9} className='media_content'>
-                    <iframe src="https://www.youtube.com/embed/8osw3ElPAvY?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>  
+                  <Col sm={9} className='media_content'>
+                    <iframe title='demo video' src="https://www.youtube.com/embed/8osw3ElPAvY?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>  
                   </Col>
                 </Row>
               </Grid>
@@ -161,7 +313,7 @@ class App extends Component {
 
           <Row className='slide'>
             <Grid>
-              <Col md={8} mdOffset={2} className='content_block'>
+              <Col sm={8} smOffset={2} className='content_block'>
                 <Row className='title_block'>
                   <p className='main_title'>Content</p>
                   <div className='square'></div>
@@ -174,12 +326,12 @@ class App extends Component {
             </Grid>
           </Row>
 
-          <Row className='footer slide_parallax'>
+          <Row className='footer'>
             <div className='back_layer'>
               <div className='hover_block'></div>
             </div>
             <div className='base_layer'>
-              <Col md={6} mdOffset={6} className='next_button'>
+              <Col sm={6} smOffset={6} className='next_button'>
                 <div className='hover_block'></div>
                 <Row>
                   <p className='sub_title'>Next Project >></p>
@@ -189,7 +341,10 @@ class App extends Component {
               </ Col>
             </div>
           </Row>
+
         </div>
+        </div>
+
       </div>
     );
   }
