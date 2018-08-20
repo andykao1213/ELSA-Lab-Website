@@ -76,13 +76,6 @@ html, body {
   height: 800px;
   position: relative; }
 
-.slide_sub {
-  height: 800px;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  visibility: hidden; }
-
 .hover_block {
   width: 100%;
   height: 100%;
